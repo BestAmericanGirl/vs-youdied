@@ -1,0 +1,11 @@
+{
+    "YouDied": "YOU DIED",
+    "durationInMs": "Duration in MS",
+    "durationInMs-comment": "Duration of the YOU DIED text in milliseconds.",
+    "fontSize": "Font Size",
+    "fontSize-comment": "Font Size of the YOU DIED text.",
+    "fontColorHex": "Font Color",
+    "fontColorHex-comment": "Color of the YOU DIED text.",
+    "volume": "Volume",
+    "volume-comment": "Volume of the sound effect. Set to 0 to disable the sound."
+}

@@ -1,0 +1,11 @@
+{
+    "YouDied": "你死了",
+    "durationInMs": "时间 (毫秒)",
+    "durationInMs-comment": "字要多少时间在画面上?",
+    "fontSize": "字体大小",
+    "fontSize-comment": "字体大小",
+    "fontColorHex": "颜色",
+    "fontColorHex-comment": "字颜色",
+    "volume": "音量",
+    "volume-comment": "不要声音就选择 0"
+}

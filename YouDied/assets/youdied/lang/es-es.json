@@ -1,0 +1,11 @@
+{
+    "YouDied": "HAS MUERTO",
+    "durationInMs": "Duración en milisegundos",
+    "durationInMs-comment": "Duración del texto en milisegundos.",
+    "fontSize": "Tamaño de Fuente",
+    "fontSize-comment": "Tamaño del texto.",
+    "fontColorHex": "Color de Feunte",
+    "fontColorHex-comment": "Color de fuente.",
+    "volume": "El volumen",
+    "volume-comment": "El volumen del sonido. 0 para desactivarlo."
+}
