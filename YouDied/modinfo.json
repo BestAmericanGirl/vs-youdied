@@ -7,8 +7,8 @@
         "Zalea"
     ],
     "description": "To be added",
-    "version": "1.0.0",
-    "side": "Client",
+    "version": "1.0.1",
+    "side": "client",
     "dependencies": {
         "game": "1.21.0"
     }
