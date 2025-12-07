@@ -28,8 +28,13 @@ namespace YouDied
 
             api.Event.RegisterRenderer(youDiedRenderer, EnumRenderStage.Ortho);
 
-            api.Event.PlayerDeath += (IClientPlayer _) =>
+            api.Event.PlayerDeath += (IClientPlayer player) =>
             {
+                // Only fire effect if we're the one dying
+                if (api.World.Player.Entity != player.Entity)
+                {
+                    return;
+                }
                 youDiedRenderer.TriggerDeath();
             };
 
