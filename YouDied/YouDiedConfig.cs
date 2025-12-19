@@ -9,5 +9,6 @@
         public float FontSize = 72f;
         public string FontColorHex = "#8B0000";
         public float Volume = 1.0f;
+        public string CustomString = "";
     }
 }

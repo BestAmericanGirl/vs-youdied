@@ -7,7 +7,7 @@
         "Zalea"
     ],
     "description": "Elden Ring death effect for Vintage Story",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "side": "client",
     "dependencies": {
         "game": "1.21.0"

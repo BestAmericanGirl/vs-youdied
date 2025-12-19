@@ -57,6 +57,15 @@
         "max": 1.0,
         "step": 0.1
       }
+    },
+    {
+      "code": "CustomString",
+      "ingui": "customString",
+      "type": "string",
+      "comment": "customString-comment",
+      "default": "",
+      "clientSide": true,
+      "weight": 1.5
     }
   ]
 }

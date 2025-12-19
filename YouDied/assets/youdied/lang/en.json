@@ -7,5 +7,7 @@
     "fontColorHex": "Font Color",
     "fontColorHex-comment": "Color of the YOU DIED text.",
     "volume": "Volume",
-    "volume-comment": "Volume of the sound effect. Set to 0 to disable the sound."
+    "volume-comment": "Volume of the sound effect. Set to 0 to disable the sound.",
+    "customString": "Custom Text",
+    "customString-comment": "Text to show instead of the default. Leave blank to use default for your current language."
 }

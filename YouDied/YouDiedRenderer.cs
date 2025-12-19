@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -30,8 +31,6 @@ namespace YouDied
             {
                 UpdateSettings();
             };
-
-            text = Lang.Get("youdied:YouDied");
 
             textTexture = new LoadedTexture(capi);
             backgroundTexture = new LoadedTexture(capi);
@@ -134,6 +133,8 @@ namespace YouDied
 
         private void LoadTextures()
         {
+            UpdateText();
+
             float fontSize = YouDiedConfig.Instance.FontSize;
             double[] color = ColorUtil.Hex2Doubles(YouDiedConfig.Instance.FontColorHex);
             CairoFont font = CairoFont.WhiteSmallText().WithColor(color).WithFontSize(fontSize);
@@ -149,6 +150,16 @@ namespace YouDied
 
             capi.Render.GetOrLoadTexture(backgroundLoc, ref backgroundTexture);
         }
+
+        private void UpdateText()
+        {
+			text = Lang.Get("youdied:YouDied");
+
+            if (YouDiedConfig.Instance.CustomString != "")
+            {
+                text = YouDiedConfig.Instance.CustomString;
+            }
+		}
 
         private void UpdateSettings()
         {
