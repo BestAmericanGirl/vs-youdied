@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -128,42 +127,52 @@ namespace YouDied
             if (elapsedMs >= durationMs)
             {
                 dying = false;
+                UpdateText();
             }
         }
 
         private void LoadTextures()
         {
-            UpdateText();
-
-            float fontSize = YouDiedConfig.Instance.FontSize;
-            double[] color = ColorUtil.Hex2Doubles(YouDiedConfig.Instance.FontColorHex);
-            CairoFont font = CairoFont.WhiteSmallText().WithColor(color).WithFontSize(fontSize);
-            capi.Gui.TextTexture.GenOrUpdateTextTexture(text, font, ref textTexture);
-
-            //AssetLocation textureLocation = new AssetLocation("youdied", "textures/background.svg");
-
-            //int iconSize = 512;
-
-            //backgroundTexture = capi.Gui.LoadSvg(textureLocation, iconSize, iconSize, iconSize, iconSize, null);
+            UpdateText(true);
 
             AssetLocation backgroundLoc = new AssetLocation("youdied", "textures/background2.png");
 
             capi.Render.GetOrLoadTexture(backgroundLoc, ref backgroundTexture);
         }
 
-        private void UpdateText()
+        private void UpdateText(bool forceRegenTexture = false)
         {
-			text = Lang.Get("youdied:YouDied");
+            string oldText = text;
+            text = Lang.Get("youdied:YouDied");
 
             if (YouDiedConfig.Instance.CustomString != "")
             {
-                text = YouDiedConfig.Instance.CustomString;
+                text = ParseCustomText(YouDiedConfig.Instance.CustomString);
             }
-		}
+
+            if (forceRegenTexture || (oldText != text))
+            {
+                GenTextTexture();
+            }
+        }
+
+        private void GenTextTexture()
+        {
+            float fontSize = YouDiedConfig.Instance.FontSize;
+            double[] color = ColorUtil.Hex2Doubles(YouDiedConfig.Instance.FontColorHex);
+            CairoFont font = CairoFont.WhiteSmallText().WithColor(color).WithFontSize(fontSize);
+            capi.Gui.TextTexture.GenOrUpdateTextTexture(text, font, ref textTexture);
+        }
+
+        private string ParseCustomText(string s)
+        {
+            string[] options = s.Split(['/'], StringSplitOptions.RemoveEmptyEntries);
+            int index = capi.World.Rand.Next(options.Length);
+            return options[index];
+        }
 
         private void UpdateSettings()
         {
-
             LoadTextures();
         }
     }
