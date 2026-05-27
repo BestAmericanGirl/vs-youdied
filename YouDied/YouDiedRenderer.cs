@@ -46,7 +46,7 @@ namespace YouDied
         {
             sound = capi.World.LoadSound(new SoundParams()
             {
-                Location = new AssetLocation("youdied", "sounds/YouDied"),
+                Location = new AssetLocation("youdied", "sounds/youdied"),
                 ShouldLoop = false,
                 DisposeOnFinish = false,
                 SoundType = EnumSoundType.Sound,
